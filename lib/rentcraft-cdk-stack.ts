@@ -1,16 +1,12 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+
+import CognitoUserPool from './components/CognitoUserPool';
 
 export class RentcraftCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
-
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'RentcraftCdkQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    
+    new CognitoUserPool(this, 'rentcraft');
   }
 }
